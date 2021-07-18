@@ -68,3 +68,9 @@ This directory contains your Vuex store files. Creating a file in this directory
 
 More information about the usage of this directory in [the documentation](https://nuxtjs.org/docs/2.x/directory-structure/store).
 # my-blog
+
+### git push
+する前には
+### git pull
+する必要がある
+＞netlify cmsにある記事をローカルにないと整合性が合わずに、エラーが起きる
