@@ -1,12 +1,10 @@
 <template>
 
   <div>
-    <li v-for="post of posts" :key="post.slug">
-      <NuxtLink :to="post.slug">{{ post.title }}</NuxtLink>
+    <li v-for="post of posts" :key="post.path">
+      <NuxtLink :to="post.path">{{ post.title }}</NuxtLink>
     </li>
-    <nuxt-link to='blog'>blogへ</nuxt-link>
-     <nuxt-link to='tech'>techへ</nuxt-link>
-    <pre>{{posts}}</pre>
+
   </div>
 </template>
 
@@ -14,7 +12,7 @@
 <script>
 export default {
   async asyncData({ $content }) {
-    const posts = await $content("blog").fetch();
+    const posts = await $content("tech").fetch();
 
     return {
       posts,
