@@ -61,8 +61,14 @@
 
 <script>
 export default {
-  async asyncData({ $content }) {
-    const posts = await $content("/", { deep: true }).fetch();
+  async asyncData({ $content,  error }) {
+    let post;
+    try {
+      posts = await $content('/',{ deep: true }).fetch();
+      // OR const article = await $content(`articles/${params.slug}`).fetch()
+    } catch (e) {
+      error({ message: "Post not found" });
+    }
 
     return {
       posts,

@@ -5944,7 +5944,7 @@
     "mdast-util-to-markdown" "^0.6.0"
     "micromark" "~2.11.0"
 
-"mdast-util-from-markdown@^0.8.0":
+"mdast-util-from-markdown@^0.8.0", "mdast-util-from-markdown@^0.8.5":
   "integrity" "sha512-2hkTXtYYnr+NubD/g6KGBS/0mFmBcifAsI0yIWRiRo0PjVs6SSOSOdtzbp6kSGnShDN6G5aWZpKQ2lWRy27mWQ=="
   "resolved" "https://registry.npmjs.org/mdast-util-from-markdown/-/mdast-util-from-markdown-0.8.5.tgz"
   "version" "0.8.5"
