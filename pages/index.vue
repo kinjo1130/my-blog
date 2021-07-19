@@ -62,7 +62,7 @@
 <script>
 export default {
   async asyncData({ $content,  error }) {
-    let post;
+    let posts;
     try {
       posts = await $content('/',{ deep: true }).fetch();
       // OR const article = await $content(`articles/${params.slug}`).fetch()
