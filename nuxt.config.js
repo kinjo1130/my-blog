@@ -28,11 +28,12 @@ export default {
   // Auto import components: https://go.nuxtjs.dev/config-components
   components: true,
 
+
   // Modules for dev and build (recommended): https://go.nuxtjs.dev/config-modules
   buildModules: [
     '@nuxtjs/tailwindcss'
   ],
-  
+
 
   // Modules: https://go.nuxtjs.dev/config-modules
   modules: [
@@ -41,17 +42,16 @@ export default {
     // https://go.nuxtjs.dev/pwa
     '@nuxtjs/pwa',
     '@nuxt/content',
-
-
   ],
   generate: {
     async routes() {
       const { $content } = require('@nuxt/content')
-      const files = await $content().only(['path']).fetch()
+      const files = await $content({ deep: true }).only(['path']).fetch()
 
       return files.map(file => file.path === '/index' ? '/' : file.path)
     }
   },
+
 
   // Axios module configuration: https://go.nuxtjs.dev/config-axios
   axios: {},

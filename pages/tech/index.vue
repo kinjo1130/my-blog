@@ -2,7 +2,7 @@
 
   <div>
     <li v-for="post of posts" :key="post.path">
-      <NuxtLink :to="post.path">{{ post.title }}</NuxtLink>
+      <nuxt-link :to="post.path">{{ post.title }}</nuxt-link>
     </li>
 
   </div>
