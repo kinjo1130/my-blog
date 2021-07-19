@@ -46,7 +46,7 @@ export default {
   generate: {
     async routes() {
       const { $content } = require('@nuxt/content')
-      const files = await $content().only(['path']).fetch()
+      const files = (await Promise.all(["blog", "tech"].map(dir => $content(dir).only(['path']).fetch()))).flat();
 
       return files.map(file => file.path === '/index' ? '/' : file.path)
     }
