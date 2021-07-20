@@ -1,6 +1,6 @@
 export default {
   // Disable server-side rendering: https://go.nuxtjs.dev/ssr-mode
-  ssr: false,
+  ssr: true,
   target: 'static',
 
   // Global page headers: https://go.nuxtjs.dev/config-head
@@ -28,7 +28,6 @@ export default {
   // Auto import components: https://go.nuxtjs.dev/config-components
   components: true,
 
-
   // Modules for dev and build (recommended): https://go.nuxtjs.dev/config-modules
   buildModules: [
     '@nuxtjs/tailwindcss'
@@ -43,16 +42,7 @@ export default {
     '@nuxtjs/pwa',
     '@nuxt/content',
   ],
-  generate: {
-    async routes() {
-      const { $content } = require('@nuxt/content')
-      const files = (await Promise.all(["blog", "tech"].map(dir => $content(dir).only(['path']).fetch()))).flat();
 
-      return files.map(file => file.path === '/index' ? '/' : file.path)
-    }
-    ,
-    fallback: true
-  },
 
 
   // Axios module configuration: https://go.nuxtjs.dev/config-axios
