@@ -62,7 +62,7 @@
 <script>
 export default {
   async asyncData({ $content }) {
-    const posts = await $content("/", { deep: true }).fetch();
+    const posts = await $content("/").fetch();
 
     return {
       posts,
