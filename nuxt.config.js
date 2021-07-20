@@ -1,6 +1,6 @@
 export default {
   // Disable server-side rendering: https://go.nuxtjs.dev/ssr-mode
-  ssr: false,
+  ssr: true,
   target: 'static',
 
   // Global page headers: https://go.nuxtjs.dev/config-head
@@ -46,7 +46,7 @@ export default {
   generate: {
     async routes() {
       const { $content } = require('@nuxt/content')
-      const files = (await Promise.all(["blog", "tech"].map(dir => $content(dir).only(['path']).fetch()))).flat();
+      const files = await $content("/", { deep: true }).only(['path']).fetch();
 
       return files.map(file => file.path === '/index' ? '/' : file.path)
     }
