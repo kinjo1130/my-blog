@@ -52,7 +52,7 @@
       <!-- 記事 -->
 
       <div v-for="post in posts" :key="post.slug" class="flex justify-start border-b-2 mr-48">
-        <p class="">{{ post.title }}</p>
+        <p :to="post.slug">{{ post.title }}</p>
       </div>
     </div>
   </header>
@@ -62,7 +62,7 @@
 <script>
 export default {
   async asyncData({ $content }) {
-    const posts = await $content("/").fetch();
+    const posts = await $content("/",{ deep:true }).fetch();
 
     return {
       posts,

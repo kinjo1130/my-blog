@@ -43,18 +43,7 @@ export default {
     '@nuxtjs/pwa',
     '@nuxt/content',
   ],
-  generate: {
-    async routes() {
-      const { $content } = require('@nuxt/content')
-      const files = (await Promise.all(["blog", "tech"].map(dir => $content(dir).only(['path']).fetch()))).flat();
-
-      return files.map(file => file.path === '/index' ? '/' : file.path)
-    }
-    ,
-    fallback: true
-  },
-
-
+  
   // Axios module configuration: https://go.nuxtjs.dev/config-axios
   axios: {},
 
