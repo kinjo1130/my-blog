@@ -62,8 +62,13 @@
 <script>
 export default {
   async asyncData({ $content }) {
+<<<<<<< HEAD
     const posts = await $content("/",{ deep:true }).fetch();
 
+=======
+    const posts = await $content("/", { deep: true }).fetch();
+    console.log(posts);
+>>>>>>> refs/remotes/origin/main
     return {
       posts,
     };
