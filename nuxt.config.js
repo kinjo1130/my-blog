@@ -42,13 +42,7 @@ export default {
     '@nuxtjs/pwa',
     '@nuxt/content',
   ],
-<<<<<<< HEAD
 
-=======
-
-
-
->>>>>>> refs/remotes/origin/main
   // Axios module configuration: https://go.nuxtjs.dev/config-axios
   axios: {},
 
