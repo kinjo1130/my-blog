@@ -2,8 +2,10 @@
   <div class="max-w-screen-2xl container mx-auto">
     <div class="mx-10 sm:mx-10 md:mx-10 lg:mx-48">
       <!-- ヘッダー -->
-      <div class="border-b-2">
-        <p class="my-5 text-center sm:text-left text-2xl">hoge</p>
+      <div class="border-b-2 py-5">
+        <nuxt-link to="/" class="text-center sm:text-left text-2xl"
+          >Blog</nuxt-link
+        >
       </div>
       <!-- メイン -->
       <!-- 2カラムでいく -->
@@ -19,8 +21,8 @@
                 flex
                 items-center
                 justify-center
-                bg-gray-200
                 mx-3
+                bg-gray-200
               "
               >blog</nuxt-link
             >
@@ -33,8 +35,8 @@
                 flex
                 items-center
                 justify-center
-                bg-gray-200
                 mx-3
+                bg-gray-200
               "
               >tech</nuxt-link
             >
@@ -55,11 +57,33 @@
           <div class="p-3 rounded-md border-solid border-2 border-gray-600">
             <!-- 中身を作っていく -->
             <!-- 画像 -->
-            <div></div>
-            <!-- 名前 -->
-            <div></div>
+            <div class="flex flex-row">
+              <img
+                src="/image.png"
+                class="rounded-full h-16 w-16"
+                alt="my-face"
+              />
+
+              <!-- 名前 -->
+              <div class="flex flex-wrap content-center ml-5">
+                <p class="text-xl font-bold">キンジョウ</p>
+              </div>
+            </div>
             <!--紹介内容  -->
-            <div>ほほほおおじいいいいいいおお</div>
+            <div>
+              <p class="mt-3">
+                学生エンジニアをしています。気ままにwebサービスなどを作っています。詳しくは
+                <a
+                  href=""
+                  @click="LinkClick('https://kinjyo.me')"
+                  class="text-indigo-600"
+                  >ポートフォリオへ</a
+                >
+              </p>
+
+              <!-- アイコン表示 -->
+              <div></div>
+            </div>
           </div>
         </div>
       </div>
@@ -84,6 +108,11 @@ export default {
         { src: "https://identity.netlify.com/v1/netlify-identity-widget.js" },
       ],
     };
+  },
+  methods: {
+    LinkClick(url) {
+      window.open(url, "_blank");
+    },
   },
 };
 </script>

@@ -1,8 +1,10 @@
 <template>
   <div class="lg:mx-48">
-   <div class="border-b-2">
-      <p class="my-5 text-center sm:text-left text-2xl">hoge</p>
-    </div>
+   <div class="border-b-2 py-5">
+        <nuxt-link to="/" class="text-center sm:text-left text-2xl"
+          >Blog</nuxt-link
+        >
+      </div>
     <div>
       <h2>{{ post.title }}</h2>
       <nuxt-content :document="post" />
