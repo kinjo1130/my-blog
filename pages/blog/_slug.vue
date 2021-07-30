@@ -1,13 +1,22 @@
 <template>
-  <div class="lg:mx-48">
-   <div class="border-b-2 py-5">
+  <div class="max-w-screen-2xl container mx-auto">
+    <div class="mx-10 sm:mx-10 md:mx-10 lg:mx-48">
+      <!-- ヘッダー -->
+      <div class="border-b-2 py-5">
         <nuxt-link to="/" class="text-center sm:text-left text-2xl"
           >Blog</nuxt-link
         >
       </div>
-    <div>
-      <h2>{{ post.title }}</h2>
-      <nuxt-content :document="post" />
+       <!-- 記事 -->
+      <div class="flex flex-wrap justify-end">
+        <div class="w-full">
+
+          <h2 class="mt-10 text-4xl font-bold">{{ post.title }}</h2>
+          <p class="mt-2 mb-9">{{ post.description }}</p>
+          <nuxt-content class="leading-loose" :document="post" />
+          <!-- <pre>{{ post }}</pre> -->
+        </div>
+      </div>
     </div>
   </div>
 </template>
