@@ -12,7 +12,7 @@ collections:
     folder: 'content/blog'
     format: 'frontmatter'
     create: true
-    slug: '{{fields.slug}}'
+    slug: '{{year}}{{month}}{{day}}{{minute}}{{second}}'
     editor:
       preview: true
     fields:
@@ -25,7 +25,7 @@ collections:
     folder: 'content/tech'
     format: 'frontmatter'
     create: true
-    slug: '{{year}}-{{month}}-{{day}}-{{slug}}'
+    slug: '{{year}}{{month}}{{day}}{{minute}}{{second}}'
     editor:
       preview: false
     fields:
