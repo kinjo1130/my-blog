@@ -98,10 +98,14 @@
 export default {
   async asyncData({ $content }) {
     const posts = await $content("blog").fetch();
-
     return {
       posts,
     };
+  },
+  methods: {
+    LinkClick(url) {
+      window.open(url, "_blank");
+    },
   },
 
 };

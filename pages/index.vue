@@ -43,13 +43,13 @@
           </div>
           <!-- 記事 -->
           <div class="">
-            <div
+            <nuxt-link
               v-for="post in posts"
               :key="post.path"
-              class="flex justify-start border-b-2"
+              :to="post.path"
+              class="flex justify-start border-b-2 py-5  text-2xl block hover:bg-gray-100"
+              >{{ post.title }}</nuxt-link
             >
-              <nuxt-link :to="post.path">{{ post.title }}</nuxt-link>
-            </div>
           </div>
         </div>
         <!-- 自己紹介 -->
@@ -96,7 +96,6 @@
 export default {
   async asyncData({ $content }) {
     const posts = await $content("/", { deep: true }).fetch();
-    console.log(posts);
 
     return {
       posts,

@@ -36,7 +36,7 @@
               justify-center
               bg-yellow-300
               mx-3
-              
+
             "
             >tech</nuxt-link
           >
@@ -103,6 +103,11 @@ export default {
     return {
       posts,
     };
+  },
+  methods: {
+    LinkClick(url) {
+      window.open(url, "_blank");
+    },
   },
 };
 </script>
