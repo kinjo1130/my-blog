@@ -1,5 +1,5 @@
 <template>
-  <div class="max-w-screen-2xl container mx-auto">
+  <div class="max-w-screen-2xl container mx-auto mb-16">
     <div class="mx-10 sm:mx-10 md:mx-10 lg:mx-48">
       <!-- ヘッダー -->
       <div class="border-b-2 py-5 text-center sm:text-left">

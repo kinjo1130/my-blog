@@ -14,7 +14,7 @@
           <p class="mt-2 mb-9">{{ post.description }}</p>
           <p>{{ post.date }}</p>
           <nuxt-content class="leading-loose mb-16" :document="post" />
-          <pre>{{ post }}</pre>
+          
         </div>
       </div>
     </div>
