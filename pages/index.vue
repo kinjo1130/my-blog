@@ -50,6 +50,7 @@
               class="flex justify-start border-b-2 py-5  text-2xl block hover:bg-gray-100"
               >{{ post.title }}</nuxt-link
             >
+
           </div>
         </div>
         <!-- 自己紹介 -->

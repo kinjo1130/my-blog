@@ -42,15 +42,16 @@
           >
         </div>
         <!-- 記事 -->
-        <div class="">
-          <div
-            v-for="post in posts"
-            :key="post.path"
-            class="flex justify-start border-b-2"
-          >
-            <nuxt-link :to="post.path">{{ post.title }}</nuxt-link>
+         <div class="">
+            <nuxt-link
+              v-for="post in posts"
+              :key="post.path"
+              :to="post.path"
+              class="flex justify-start border-b-2 py-5  text-2xl block hover:bg-gray-100"
+              >{{ post.title }}</nuxt-link
+            >
+
           </div>
-        </div>
       </div>
 
      <!-- 自己紹介 -->

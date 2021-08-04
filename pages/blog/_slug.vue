@@ -10,11 +10,11 @@
        <!-- 記事 -->
       <div class="flex flex-wrap justify-end">
         <div class="w-full">
-
-          <h2 class="mt-10 text-4xl font-bold">{{ post.title }}</h2>
+          <p class="mt-10 text-4xl font-bold">{{ post.title }}</p>
           <p class="mt-2 mb-9">{{ post.description }}</p>
-          <nuxt-content class="leading-loose" :document="post" />
-          <!-- <pre>{{ post }}</pre> -->
+          <p>{{ post.date }}</p>
+          <nuxt-content class="leading-loose mb-16" :document="post" />
+          <pre>{{ post }}</pre>
         </div>
       </div>
     </div>

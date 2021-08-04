@@ -13,7 +13,7 @@
 
           <h2 class="mt-10 text-4xl font-bold">{{ post.title }}</h2>
           <p class="mt-2 mb-9">{{ post.description }}</p>
-          <nuxt-content class="leading-loose" :document="post" />
+          <nuxt-content class="leading-loose mb-16" :document="post" />
         </div>
       </div>
     </div>
