@@ -51,7 +51,7 @@ export default {
     '@nuxtjs/google-gtag',
     {
       id: 'G-G2T5H3H55Y', //あなたのGoogleアナリティクスのプロパティID
-      debug: true //本番環境以外でもGAを有効にしたい場合はtrueに。
+      debug: false //本番環境以外でもGAを有効にしたい場合はtrueに。
     }
   ],
 
