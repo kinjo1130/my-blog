@@ -49,11 +49,12 @@ export default {
     '@nuxtjs/pwa',
     '@nuxt/content',
     '@nuxtjs/google-gtag',
-    {
-      id: 'G-G2T5H3H55Y', //あなたのGoogleアナリティクスのプロパティID
-      debug: false //本番環境以外でもGAを有効にしたい場合はtrueに。
-    }
+
   ],
+  'google-gtag': {
+    id: 'G-G2T5H3H55Y',  //サイトのID
+    debug: true,  // 開発環境でも表示したい場合
+  },
 
 
   // Axios module configuration: https://go.nuxtjs.dev/config-axios
