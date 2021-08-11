@@ -12,9 +12,9 @@
         <div class="w-full">
           <p class="mt-10 text-4xl font-bold">{{ post.title }}</p>
           <p class="mt-2 mb-9">{{ post.description }}</p>
-          <p>{{ post.date }}</p>
-          <nuxt-content class="leading-loose mb-16" :document="post" />
-          
+          <p>{{ $dayjs(post.date).format('YYYY/MM/DD') }}</p>
+          <nuxt-content class="prose leading-loose mb-16" :document="post" />
+
         </div>
       </div>
     </div>
@@ -33,6 +33,7 @@ export default {
 
     return {
       post,
+
     };
   },
 };
