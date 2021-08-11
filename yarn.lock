@@ -1381,6 +1381,11 @@
     consola "^2.3.2"
     dayjs "^1.10.4"
 
+"@nuxtjs/google-adsense@^1.4.0":
+  version "1.4.0"
+  resolved "https://registry.yarnpkg.com/@nuxtjs/google-adsense/-/google-adsense-1.4.0.tgz#c86eedf10fa8cc9ae5e4b3bb45998bd462d9634b"
+  integrity sha512-C5PfE/IE/VhqhomZWNNbTmVIPjB2o+2iRXZA16QoPMA0n2cotfGqt1CkECTYPyFhN89beMa7ioOic9/+ESLPXg==
+
 "@nuxtjs/google-gtag@^1.0.4":
   version "1.0.4"
   resolved "https://registry.yarnpkg.com/@nuxtjs/google-gtag/-/google-gtag-1.0.4.tgz#57562d8ec4c7694573e77edf72097da4a34b0d68"

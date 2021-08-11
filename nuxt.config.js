@@ -50,6 +50,12 @@ export default {
     '@nuxt/content',
     '@nuxtjs/google-gtag',
     '@nuxtjs/dayjs',
+    ['@nuxtjs/google-adsense', {
+      id: 'ca-pub-9995998124093655',
+      pageLevelAds: true,
+      analyticsUacct: 'G-G2T5H3H55Y',
+      analyticsDomainName: 'my-blog.jp'
+    }],
 
   ],
   'google-gtag': {
