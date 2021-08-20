@@ -83,8 +83,8 @@
               </p>
 
               <!-- アイコン表示 -->
-              <div>
-
+               <div class="flex justify-center mt-5">
+                <a class="px-5 text-blue-400" href="" @click="LinkClick('https://twitter.com/kinjyo1130')">Twitter</a>
               </div>
             </div>
           </div>
