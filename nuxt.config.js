@@ -58,45 +58,45 @@ export default {
     }],
     '@nuxtjs/feed',
   ],
-  feed: [
-    {
-      path: '/feed.xml', // The route to your feed.
-      async create(feed) {
-        feed.options = {
-          title: "キンジョウ",
-          link: "https://my-blog.jp/feed.xml", // 上のpathで設定したものと対応するように
-          description: "キンジョウのブログ - フィード"
-        };
-        // 記事を取得
-        await client
-          .getEntries({
-            content_type: "post",
-            order: "-sys.createdAt"
-          })
-          .then(entries => {
-            entries.items.forEach(post => {
-              feed.addItem({
-                title: post.fields.title,
-                id: `https://my-blog.jp/blog/${post.fields.slug}/`, // 記事のURL
-                link: `https://my-blog.jp/blog/${post.fields.slug}/`, // 記事のURL
-                description: post.fields.description,
-                content: post.fields.content,
-                date: post.fields.update ? new Date(post.fields.update) : new Date(post.sys.createdAt), // 記事の最終更新日
-                published: new Date(post.sys.createdAt), // 記事の公開日
-              });
-            });
-            feed.addCategory("blog");
-            feed.addContributor({
-              name: "キンジョウ",
-              link: "https://my-blog.jp/"
-            });
-          });
-      },
-    }
-  ],
   'google-gtag': {
     id: 'G-G2T5H3H55Y',  //サイトのID
     debug: true,  // 開発環境でも表示したい場合
+  },
+  feed() {
+    const baseUrl = 'https://my-blog.jp'
+    const baseLinkFeedArticles = '/feed'
+    const feedFormats = {
+      rss: { type: 'rss2', file: 'rss.xml' },
+      json: { type: 'json1', file: 'feed.json' },
+      atom: { type: 'atom1', file: 'feed.xml' }
+    }
+    const { $content } = require('@nuxt/content')
+    const createFeedArticles = async function (feed) {
+      feed.options = {
+        title: 'キンジョウ Blog',
+        description: '学生エンジニアの日常',
+        link: baseUrl,
+      }
+      const articles = await $content("/", { deep: true })
+        .only(['title', 'description', 'updatedAt'])
+        .sortBy('updatedAt', 'desc')
+        .fetch()
+      articles.forEach((article) => {
+        const url = `${baseUrl}/${article.slug}`
+        feed.addItem({
+          title: article.title,
+          id: url,
+          link: url,
+          date: new Date(article.updatedAt),
+          description: article.description,
+        })
+      })
+    }
+    return Object.values(feedFormats).map(({ file, type }) => ({
+      path: `${baseLinkFeedArticles}/${file}`,
+      type: type,
+      create: createFeedArticles,
+    }))
   },
 
 
