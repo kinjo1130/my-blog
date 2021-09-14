@@ -60,11 +60,11 @@ export default {
   ],
   feed: [
     {
-      path: '/feed', // The route to your feed.
+      path: '/feed.xml', // The route to your feed.
       async create(feed) {
         feed.options = {
-          title: "イズミログ",
-          link: "https://my-blog.jp/feed", // 上のpathで設定したものと対応するように
+          title: "キンジョウ",
+          link: "https://my-blog.jp/feed.xml", // 上のpathで設定したものと対応するように
           description: "キンジョウのブログ - フィード"
         };
         // 記事を取得
@@ -78,7 +78,7 @@ export default {
               feed.addItem({
                 title: post.fields.title,
                 id: `https://my-blog.jp/blog/${post.fields.slug}/`, // 記事のURL
-                link: `https://izm51.com/blog/${post.fields.slug}/`, // 記事のURL
+                link: `https://my-blog.jp/blog/${post.fields.slug}/`, // 記事のURL
                 description: post.fields.description,
                 content: post.fields.content,
                 date: post.fields.update ? new Date(post.fields.update) : new Date(post.sys.createdAt), // 記事の最終更新日
