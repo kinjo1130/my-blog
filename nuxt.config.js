@@ -56,7 +56,43 @@ export default {
       analyticsUacct: 'G-G2T5H3H55Y',
       analyticsDomainName: 'my-blog.jp'
     }],
-
+    '@nuxtjs/feed',
+  ],
+  feed: [
+    {
+      path: '/feed', // The route to your feed.
+      async create(feed) {
+        feed.options = {
+          title: "イズミログ",
+          link: "https://my-blog.jp/feed", // 上のpathで設定したものと対応するように
+          description: "キンジョウのブログ - フィード"
+        };
+        // 記事を取得
+        await client
+          .getEntries({
+            content_type: "post",
+            order: "-sys.createdAt"
+          })
+          .then(entries => {
+            entries.items.forEach(post => {
+              feed.addItem({
+                title: post.fields.title,
+                id: `https://my-blog.jp/blog/${post.fields.slug}/`, // 記事のURL
+                link: `https://izm51.com/blog/${post.fields.slug}/`, // 記事のURL
+                description: post.fields.description,
+                content: post.fields.content,
+                date: post.fields.update ? new Date(post.fields.update) : new Date(post.sys.createdAt), // 記事の最終更新日
+                published: new Date(post.sys.createdAt), // 記事の公開日
+              });
+            });
+            feed.addCategory("blog");
+            feed.addContributor({
+              name: "キンジョウ",
+              link: "https://my-blog.jp/"
+            });
+          });
+      },
+    }
   ],
   'google-gtag': {
     id: 'G-G2T5H3H55Y',  //サイトのID
@@ -76,6 +112,6 @@ export default {
 
   // Build Configuration: https://go.nuxtjs.dev/config-build
   build: {
-    babel: { plugins: [["@babel/plugin-proposal-private-property-in-object", { "loose": true }]]}
+    babel: { plugins: [["@babel/plugin-proposal-private-property-in-object", { "loose": true }]] }
   }
 }
