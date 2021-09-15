@@ -1,4 +1,5 @@
 export default {
+
   // Disable server-side rendering: https://go.nuxtjs.dev/ssr-mode
   ssr: true,
   target: 'static',
@@ -62,42 +63,38 @@ export default {
     id: 'G-G2T5H3H55Y',  //サイトのID
     debug: true,  // 開発環境でも表示したい場合
   },
-  feed() {
-    const baseUrl = 'https://my-blog.jp'
-    const baseLinkFeedArticles = '/feed'
-    const feedFormats = {
-      rss: { type: 'rss2', file: 'rss.xml' },
-      json: { type: 'json1', file: 'feed.json' },
-      atom: { type: 'atom1', file: 'feed.xml' }
-    }
-    const { $content } = require('@nuxt/content')
-    const createFeedArticles = async function (feed) {
-      feed.options = {
-        title: 'キンジョウ Blog',
-        description: '学生エンジニアの日常',
-        link: baseUrl,
-      }
-      const articles = await $content("/", { deep: true })
-        .only(['title', 'description', 'updatedAt'])
-        .sortBy('updatedAt', 'desc')
-        .fetch()
-      articles.forEach((article) => {
-        const url = `${baseUrl}/${article.slug}`
-        feed.addItem({
-          title: article.title,
-          id: url,
-          link: url,
-          date: new Date(article.updatedAt),
-          description: article.description,
+
+  feed: [
+    {
+      create: async feed => {
+        const $content = require('@nuxt/content').$content
+        feed.options = {
+          title: 'My Blog',
+          link: 'https://my-blog.jp',
+          description: "It's all about programming!",
+        }
+
+        const posts = await $content('blog')
+          .sortBy('createdAt', 'desc')
+          .fetch()
+        posts.forEach(post => {
+          const url = `https://my-blog.jp/blog/${post.slug}`
+          feed.addItem({
+            author: post.authors,
+            content: post.bodyHtml,
+            date: new Date(post.createdAt),
+            description: post.description,
+            id: url,
+            link: url,
+            title: post.title,
+          })
         })
-      })
-    }
-    return Object.values(feedFormats).map(({ file, type }) => ({
-      path: `${baseLinkFeedArticles}/${file}`,
-      type: type,
-      create: createFeedArticles,
-    }))
-  },
+      },
+      path: '/feed',
+      type: 'rss2',
+    },
+  ],
+
 
 
   // Axios module configuration: https://go.nuxtjs.dev/config-axios
