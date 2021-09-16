@@ -71,7 +71,7 @@ export default {
         feed.options = {
           title: 'My Blog',
           link: 'https://my-blog.jp',
-          description: "It's all about programming!",
+          description: "学生エンジニアの日常",
         }
 
         const posts = await $content('blog')
