@@ -85,6 +85,7 @@
               <!-- アイコン表示 -->
                <div class="flex justify-center mt-5">
                 <a class="px-5 text-blue-400" href="" @click="LinkClick('https://twitter.com/kinjyo1130')">Twitter</a>
+                <a class="px-5 text-yellow-400" href="" @click="LinkClick('https://my-blog.jp/feed')">RSS</a>
               </div>
             </div>
           </div>
