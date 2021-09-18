@@ -74,7 +74,7 @@ export default {
           description: "学生エンジニアの日常",
         }
 
-        const posts = await $content('blog')
+        const posts = await $content('blog','tech')
           .sortBy('createdAt', 'desc')
           .fetch()
         posts.forEach(post => {
