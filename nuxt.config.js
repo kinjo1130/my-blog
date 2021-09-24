@@ -13,7 +13,7 @@ export default {
       { hid: 'description', name: 'description', content: '多種多様な内容を書いていきます。' },
       { hid: 'og:site_name', property: 'og:site_name', content: "学生エンジニアの日常" },
       { hid: 'og:type', property: 'og:type', content: 'website' },
-      { hid: 'og:url', property: 'og:url', content: 'https://kinjyo.me' },
+      { hid: 'og:url', property: 'og:url', content: 'https://my-blog.jp' },
       { hid: 'og:title', property: 'og:title', content: "学生エンジニアの日常" },
       { hid: 'og:description', property: 'og:description', content: '多種多様な日常を書いていきます。' },
       { hid: 'og:image', property: 'og:image', content: 'https://kinjyo.me/_nuxt/img/image.1c1b45f.png' },
