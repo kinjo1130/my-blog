@@ -17,7 +17,7 @@ export default {
       { hid: 'og:title', property: 'og:title', content: "学生エンジニアの日常" },
       { hid: 'og:description', property: 'og:description', content: '多種多様な日常を書いていきます。' },
       { hid: 'og:image', property: 'og:image', content: 'https://kinjyo.me/_nuxt/img/image.1c1b45f.png' },
-      { name: 'twitter:card', content: 'summary' }, //twitterの画像サイズ
+      { name: 'twitter:card', content: 'summary_large_image' }, //twitterの画像サイズ
       { name: "google-site-verification", content: "PtYzxYyQoXOUhMNBGYRzN56uPOUCSR5_6dFkZ22v0I4" }
     ],
     link: [
